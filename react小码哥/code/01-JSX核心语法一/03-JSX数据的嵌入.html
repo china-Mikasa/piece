@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script src="../../react/react.development.js"></script>
+  <script src="../../react/react-dom.development.js"></script>
+  <script src="../../react/babel.min.js"></script>
+  <script type="text/babel">
+
+    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          // 1.能显示的数据
+          name: 'mikasa', // String
+          age: 18, // Number,
+          giants: ['mikasa', 'ailun'], // Array数组里不是复杂的数据
+
+          // 2.不能显示的数据(忽略)
+          text1: null, // null
+          text2: undefined, // undefined
+          text3: true, // boolean
+          flag: false,
+
+          // 3.对象不能做为一个子类
+          info: {
+            name: 'mikasa',
+            age: 18
+          }
+
+        }
+
+      }
+      render() {
+        return (
+          <div>
+            <p>{this.state.name}</p>
+            <p>{this.state.age}</p>
+            <p>{this.state.giants}</p>
+
+            <p>{this.state.text1}</p>
+            <p>{this.state.text2}</p>
+            <p>{this.state.text3}</p>
+
+            <p>{this.state.flag ? '三笠' : null}</p>
+            <p>{this.state.flag && '三笠'}</p>
+
+            <p>进击的巨人</p>
+
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'))
+  </script>
+</body>
+
+</html>

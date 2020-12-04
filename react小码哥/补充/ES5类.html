@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>E5类</title>
+  <script type="text/javascript">
+    // ES5定义类的方法
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+    }
+
+
+
+    // this指向会隐式转换指向p   
+    let p = new Person('mikasa', 18)
+    // 使用原型将方法绑定到类中
+    Person.prototype.running = () => {
+      console.log(p.name)
+      console.log(p.age)
+    }
+    console.log(p.name)
+    console.log(p.age)
+    p.running()
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script src="../../react/react.development.js"></script>
+  <script src="../../react/react-dom.development.js"></script>
+  <script src="../../react/babel.min.js"></script>
+  <script type="text/babel">
+
+    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          message: 'Hello World'
+        }
+
+      }
+      render() {
+        return (
+          <div>
+            { /* 1.bind绑定this(显示绑定) */}
+            <button onClick={this.increment.bind(this)}>bind绑定</button>
+            { /* 2.使用箭头函数(个人喜欢) */}
+            <button onClick={this.decrement}>箭头函数</button>
+            { /* 3.直接传入一个箭头函数,在箭头函数调用方法(老师推荐) */}
+            <button onClick={() => { this.increment() }}>箭头函数调用函数</button>
+          </div>
+        )
+      }
+
+      // 
+      increment() {
+        console.log(this.state.message)
+      }
+
+      decrement = () => {
+        console.log(this.state.message)
+      }
+
+      // 箭头函数中永远不绑定this
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'))
+  </script>
+</body>
+
+</html>
